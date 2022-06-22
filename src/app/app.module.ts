@@ -12,6 +12,12 @@ import { RecipeItemComponent } from './recipe-book/recipe-item/recipe-item.compo
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.component';
 import  { DropdownDirective } from "../models/dropdown.directive";
+import { ShoppingListService } from "./services/shopping-list.service";
+import { Routes, RouterModule } from "@angular/router";
+
+const routes: Routes = [
+
+];
 
 @NgModule({
   declarations: [
@@ -28,9 +34,10 @@ import  { DropdownDirective } from "../models/dropdown.directive";
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
