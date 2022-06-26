@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './constants/header/header.component';
@@ -11,13 +11,14 @@ import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail
 import { RecipeItemComponent } from './recipe-book/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from "../models/dropdown.directive";
-import { ShoppingListService } from "./services/shopping-list.service";
-import { Routes, RouterModule } from "@angular/router";
+import { DropdownDirective } from '../models/dropdown.directive';
+import { ShoppingListService } from './services/shopping-list.service';
+import { Routes, RouterModule } from '@angular/router';
 import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
-import { RecipeService } from "./services/recipe.service";
-import {RecipeResolverService} from "./services/recipe-resolver.service";
+import { RecipeService } from './services/recipe.service';
+import { RecipeResolverService } from './services/recipe-resolver.service';
+import { AuthComponent } from './constants/auth/auth.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: ':id/edit', component: RecipeEditComponent, resolve: [RecipeResolverService] },
     ]},
   { path: 'shopping-list', component: ShoppingListComponent},
+  { path: 'auth', component: AuthComponent }
 
 ];
 
@@ -43,7 +45,8 @@ const routes: Routes = [
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
