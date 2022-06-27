@@ -19,6 +19,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
 import { RecipeService } from './services/recipe.service';
 import { RecipeResolverService } from './services/recipe-resolver.service';
 import { AuthComponent } from './constants/auth/auth.component';
+import { LoadingSpinnerComponent } from './constants/loading-spinner/loading-spinner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -46,7 +47,8 @@ const routes: Routes = [
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
