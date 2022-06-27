@@ -21,10 +21,11 @@ import { RecipeResolverService } from './services/recipe-resolver.service';
 import { AuthComponent } from './constants/auth/auth.component';
 import { LoadingSpinnerComponent } from './constants/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AuthGuard } from './constants/auth/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent, children: [
+  { path: 'recipes', component: RecipesComponent, canActivate: [AuthGuard] ,children: [
       { path: '', component: RecipeStartComponent },
       { path: 'new', component: RecipeEditComponent },
       { path: ':id', component: RecipeDetailComponent, resolve: [RecipeResolverService] },
