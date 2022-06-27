@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './constants/header/header.component';
@@ -20,6 +20,7 @@ import { RecipeService } from './services/recipe.service';
 import { RecipeResolverService } from './services/recipe-resolver.service';
 import { AuthComponent } from './constants/auth/auth.component';
 import { LoadingSpinnerComponent } from './constants/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -57,7 +58,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
