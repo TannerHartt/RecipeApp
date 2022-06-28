@@ -22,6 +22,7 @@ import { AuthComponent } from './constants/auth/auth.component';
 import { LoadingSpinnerComponent } from './constants/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AuthGuard } from './constants/auth/auth-guard';
+import { AlertComponent } from './constants/alert/alert.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -50,7 +51,8 @@ const routes: Routes = [
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

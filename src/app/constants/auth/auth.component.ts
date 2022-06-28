@@ -22,6 +22,9 @@ export class AuthComponent implements OnInit {
   onSwitchMode() {
     this.isLoggedIn = !this.isLoggedIn;
   }
+  onHandleError() {
+    this.error = null;
+  }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -49,8 +52,7 @@ export class AuthComponent implements OnInit {
         this.isLoading = false;
       }
     );
-
-
     form.reset();
   }
+
 }
