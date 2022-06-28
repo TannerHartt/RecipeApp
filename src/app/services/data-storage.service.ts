@@ -18,7 +18,8 @@ export class DataStorageService {
     return this.http.put(`${this.baseUrl}/recipes.json`, recipes)
       .subscribe(response => {
         console.log(response);
-      });
+      }
+    );
   }
 
   fetchRecipes() {
